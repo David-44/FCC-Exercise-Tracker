@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+
+<head>
+	<meta charset="utf-8" />
+	<title>FCC: Exercise tracker</title>
+
+	<meta name="description" content="4th project of the microservices API for FreeCodeCamp.">
+	<meta name="keywords" content="Exercise tracker">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="main.css" rel="stylesheet">
+</head>
+
+
+
+
+<body>
+
+  <head>
+    <h1 class="main-title">Exercise Tracker</h1>
+  </head>
+
+  <main>
+
+    <form id="user-form" action="/api/exercise/new-user" method="post">
+      <h2 class="form-title">Create a new user</h2>
+
+      <p class="form-component">
+        <label for="username" class="form-label">user name</label>
+        <input class="form-input" type="text" required aria-required="true" name="username" id="username" placeholder="johndoe" >
+      </p>
+
+      <button class="button" type="submit" value="submit">Submit</button>
+    </form>
+
+    <form id="exercise-form" action="/api/exercise/add" method="post">
+      <h2 class="form-title">Add exercises</h2>
+
+      <p class="form-component">
+        <label for="user" class="form-label">user ID</label>
+        <input class="form-input" type="text" required aria-required="true" name="user" id="user" placeholder="johndoe" >
+      </p>
+
+      <p class="form-component">
+        <label for="description" class="form-label">description</label>
+        <input class="form-input" type="text" required aria-required="true" name="description" id="decription" placeholder="a great project" >
+      </p>
+
+      <p class="form-component">
+        <label for="duration" class="form-label">duration (mins)</label>
+        <input class="form-input" type="text" required aria-required="true" name="duration" id="duration" placeholder="45" >
+      </p
+
+      <p class="form-component">
+        <label for="date" class="form-label">date</label>
+        <input class="form-input" type="date" required aria-required="true" name="date" id="date">
+      </p>
+
+      <button class="button" type="submit" value="submit">Submit</button>
+
+    </form>
+
+  </main>
+
+</body>
