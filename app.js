@@ -37,19 +37,26 @@ app.use('/api/exercise', router);
 // GET requests
 
 router.get(['/log'], (req, res) => {
+  // getting all variables from the quesry string
   let {userId, from, to ,limit} = req.query;
+
+  // changing these variables to something usable if they exist
   let fromDate = from ? new Date(from) : new Date(0),
       toDate = to ? new Date(to) : new Date(),
       duration = limit || 9999999;
+
+
   if (userId) {
     User.find({username: userId}, (err, users) => {
       if (err) { throw err; }
       if (users.length == 0) { res.send('invalid userId'); }
+
       let exercises = users[0].exercises.filter(exercise => {
         let d = exercise.date.getTime();
         return d > fromDate.getTime() && d < toDate.getTime() && exercise.duration <= duration;
       });
       res.json(exercises);
+
     });
   } else {
     res.send('No userId');
@@ -140,7 +147,7 @@ let userSchema = new mongoose.Schema({
     trim: true
   },
 
-  // Exercises
+  // Exercises as an array
   exercises: [exerciseSchema]
 
 });
